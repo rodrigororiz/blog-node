@@ -1,0 +1,40 @@
+{{> header}}
+
+<h1>Meu Perfil</h1>
+
+<form method="POST">
+    
+    <label>
+        Nome Completo:
+        <input type="text" name="name" value="{{user.name}}"/>
+    </label>
+
+    <label>
+        Email:
+        <input type="email" name="email" value="{{user.email}}"/>
+    </label>
+    <br>
+    
+        <input type="submit" value="Salvar"/>
+    </label>
+</form>
+
+<hr/>
+
+<form method="POST" action="/profile/password">
+    
+    <label>
+        Nova senha:
+        <input type="password" name="password"/>
+    </label>
+
+    <label>
+        Confirmar Nova senha:
+        <input type="password" name="password-confirm"/>
+    </label>
+    <br>
+    
+        <input type="submit" value="Salvar"/>
+    </label>
+</form>
+

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const slug = require('slug');
 
 mongoose.Promise = global.Promise;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const postShema = new mongoose.Schema({
     photo:String,
@@ -17,7 +18,11 @@ const postShema = new mongoose.Schema({
     },
     tags:[
         String
-    ]
+    ],
+    author:{
+        type:ObjectId,
+        ref:'User'
+    }
 });
 
 postShema.pre('save', async function(next) {

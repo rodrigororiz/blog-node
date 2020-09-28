@@ -14,6 +14,16 @@ router.get('/users/logout', userController.logout);
 router.get('/users/register', userController.register);
 router.post('/users/register', userController.registerAction);
 
+router.get('/profile', authMiddleware.isLogged, userController.profile);
+router.post('/profile', authMiddleware.isLogged, userController.profileAction);
+
+router.get('/users/forget', userController.forget);
+router.post('/users/forget', userController.forgetAction);
+router.get('/users/reset/:token', userController.forgetToken);
+router.post('/users/reset/:token', userController.forgetTokenAction);
+
+router.post('/profile/password', authMiddleware.isLogged, authMiddleware.changePassword);
+
 router.get('/post/add', authMiddleware.isLogged, postController.add);
 router.post('/post/add', 
     authMiddleware.isLogged,
